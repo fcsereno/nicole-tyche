@@ -42,13 +42,47 @@ function productCard(p) {
     </article>`;
 }
 
+const ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"];
+
+function sectionHTML(sectionIndex, heading, gridId) {
+  return `
+    <section class="part${sectionIndex > 0 ? " divider" : ""}">
+      <div class="part-label">Parte ${ROMAN[sectionIndex] || sectionIndex + 1}</div>
+      <h2 class="part-title">${heading}</h2>
+    </section>
+    <div class="grid" id="${gridId}"></div>`;
+}
+
+// Monta as seções e grades a partir de CATEGORIES + PRODUCTS. Categorias
+// que ainda não tenham entrado em CATEGORIES (products.js) aparecem do
+// mesmo jeito, no fim, com um título simples — nada fica escondido.
 function renderGrids() {
-  const docinhos = PRODUCTS.filter((p) => p.category === "docinhos");
-  const doces = PRODUCTS.filter((p) => p.category === "doces");
-  const bolos = PRODUCTS.filter((p) => p.category === "bolos");
-  document.getElementById("grid-docinhos").innerHTML = docinhos.map(productCard).join("");
-  document.getElementById("grid-doces").innerHTML = doces.map(productCard).join("");
-  document.getElementById("grid-bolos").innerHTML = bolos.map(productCard).join("");
+  const catalog = document.getElementById("catalog");
+  const pending = [];
+  let sectionIndex = 0;
+  let html = "";
+
+  const addSection = (id, heading) => {
+    const items = PRODUCTS.filter((p) => p.category === id);
+    if (items.length === 0) return;
+    const gridId = `grid-${id}`;
+    html += sectionHTML(sectionIndex, heading, gridId);
+    pending.push({ gridId, items });
+    sectionIndex++;
+  };
+
+  CATEGORIES.forEach((cat) => addSection(cat.id, `${cat.label} · ${cat.title}`));
+
+  const knownIds = CATEGORIES.map((cat) => cat.id);
+  const usedIds = [...new Set(PRODUCTS.map((p) => p.category))];
+  usedIds
+    .filter((id) => !knownIds.includes(id))
+    .forEach((id) => addSection(id, id.charAt(0).toUpperCase() + id.slice(1)));
+
+  catalog.innerHTML = html;
+  pending.forEach(({ gridId, items }) => {
+    document.getElementById(gridId).innerHTML = items.map(productCard).join("");
+  });
 }
 
 function wireProductActions() {

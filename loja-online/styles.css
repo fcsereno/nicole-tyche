@@ -79,6 +79,12 @@ a { color: var(--gold); }
   padding-bottom: 6px;
 }
 
+.part.divider {
+  margin-top: 20px;
+  padding-top: 34px;
+  border-top: 1px solid rgba(154,123,63,0.2);
+}
+
 .part-label {
   font-family: 'Courier New', monospace;
   font-size: 10px;

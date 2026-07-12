@@ -1,3 +1,13 @@
+// Categorias do catálogo, na ordem em que devem aparecer na página.
+// Pra criar uma categoria nova, basta adicionar um item aqui (com um "id"
+// livre) e usar esse mesmo id no campo "category" dos produtos abaixo —
+// a seção e a grade aparecem sozinhas, sem precisar editar o HTML.
+const CATEGORIES = [
+  { id: "docinhos", label: "Les Petits", title: "Docinhos" },
+  { id: "doces", label: "Les Gourmandises", title: "Doces" },
+  { id: "bolos", label: "Les Gâteaux", title: "Bolos" },
+];
+
 // Catálogo de produtos. Para trocar uma foto, defina "image" com o caminho
 // do arquivo (ex: "images/petit-citron.jpg"). Enquanto image for null,
 // aparece um selo "foto em breve" no lugar.
