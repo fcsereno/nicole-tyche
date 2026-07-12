@@ -1,0 +1,496 @@
+:root {
+  --desk: #ece8dd;
+  --card: #faf6ec;
+  --border: rgba(154,123,63,0.28);
+  --gold: #9a7b3f;
+  --gold-light: #c2a55f;
+  --ink: #2b2620;
+  --text: #5f584c;
+  --label: #a08a5f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--desk);
+  font-family: 'EB Garamond', serif;
+  color: var(--ink);
+}
+
+a { color: var(--gold); }
+
+/* ---------- header ---------- */
+
+.header {
+  text-align: center;
+  padding: 48px 24px 24px;
+}
+
+.brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 26px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  padding-left: 0.3em;
+}
+
+.title {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 1;
+  margin: 0 0 12px;
+  color: var(--gold);
+}
+
+.tagline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--gold);
+}
+
+.tagline .line { height: 1px; width: 32px; background: currentColor; opacity: 0.6; }
+.tagline .text { font-style: italic; font-size: 14px; color: #7a6a52; }
+
+/* ---------- sheet / parts ---------- */
+
+.sheet {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 24px 40px;
+}
+
+.part {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 6px;
+}
+
+.part-label {
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--label);
+  margin-bottom: 4px;
+}
+
+.part-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 30px;
+  margin: 0;
+}
+
+/* ---------- product grid ---------- */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+  padding-top: 20px;
+}
+
+.product {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-media {
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  position: relative;
+  background: linear-gradient(135deg, #f1ebda, #e4d9bd);
+}
+
+.product-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.product-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.product-placeholder .letter {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 46px;
+  color: var(--gold-light);
+  line-height: 1;
+}
+
+.product-placeholder .caption {
+  font-family: 'Courier New', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--label);
+}
+
+.product-body {
+  padding: 18px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.product-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 23px;
+  line-height: 1.1;
+  margin: 0 0 8px;
+}
+
+.product-desc {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--text);
+  margin: 0 0 14px;
+  flex: 1;
+}
+
+.product-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #8a795c;
+  margin-bottom: 14px;
+}
+
+.product-price { color: var(--gold); font-weight: 700; }
+.product-sep { height: 11px; width: 1px; background: rgba(154,123,63,0.5); }
+
+.product-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.qty-stepper {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.qty-stepper button {
+  width: 30px;
+  height: 32px;
+  border: none;
+  background: #fff;
+  color: var(--gold);
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.qty-stepper button:hover { background: var(--card); }
+
+.qty-stepper .qty-value {
+  width: 34px;
+  text-align: center;
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+}
+
+.add-btn, .quote-btn {
+  flex: 1;
+  border: none;
+  border-radius: 3px;
+  background: var(--gold);
+  color: #fff;
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 9px 12px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.add-btn:hover, .quote-btn:hover { background: #86692f; }
+
+.add-btn.added { background: #6f8f5f; }
+
+/* ---------- footer ---------- */
+
+.footer {
+  text-align: center;
+  padding: 30px 24px 60px;
+  border-top: 1px solid rgba(154,123,63,0.2);
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.footer .row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.footer .label {
+  font-style: italic;
+  font-size: 13px;
+  letter-spacing: 0.25em;
+  color: var(--label);
+  text-transform: lowercase;
+}
+
+.footer .sep { height: 10px; width: 1px; background: rgba(154,123,63,0.4); }
+
+.footer a {
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+}
+
+/* ---------- cart toggle button ---------- */
+
+.cart-toggle {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: none;
+  background: var(--gold);
+  color: #fff;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(154,123,63,0.45);
+  z-index: 40;
+  transition: background 0.15s;
+}
+
+.cart-toggle:hover {
+  background: #86692f;
+}
+
+.cart-count {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: var(--ink);
+  color: #fff;
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  min-width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+}
+
+/* ---------- cart panel ---------- */
+
+.cart-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(20,17,12,0.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  z-index: 45;
+}
+
+.cart-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: min(380px, 100%);
+  background: #fff;
+  box-shadow: -4px 0 20px rgba(0,0,0,0.15);
+  transform: translateX(100%);
+  transition: transform 0.25s ease;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+}
+
+body.cart-open .cart-panel { transform: translateX(0); }
+body.cart-open .cart-backdrop { opacity: 1; pointer-events: auto; }
+body.cart-open { overflow: hidden; }
+
+.cart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 22px;
+  border-bottom: 1px solid var(--border);
+}
+
+.cart-header h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 24px;
+  margin: 0;
+}
+
+.cart-close {
+  border: none;
+  background: none;
+  font-size: 26px;
+  line-height: 1;
+  color: var(--text);
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: -10px -10px -10px 0;
+}
+
+.cart-items {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px 22px;
+}
+
+.cart-empty {
+  text-align: center;
+  color: var(--text);
+  font-style: italic;
+  padding: 40px 10px;
+}
+
+.cart-item {
+  display: flex;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(154,123,63,0.15);
+}
+
+.cart-item-info { flex: 1; }
+
+.cart-item-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 17px;
+  margin-bottom: 4px;
+}
+
+.cart-item-unit {
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  color: var(--label);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+
+.cart-item-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cart-item-price {
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.cart-item-remove {
+  border: none;
+  background: none;
+  color: #a04b4b;
+  font-size: 11px;
+  text-decoration: underline;
+  cursor: pointer;
+  font-family: 'Courier New', monospace;
+}
+
+.cart-footer {
+  padding: 18px 22px 24px;
+  border-top: 1px solid var(--border);
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+#cart-total-value {
+  font-size: 18px;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.cart-checkout {
+  width: 100%;
+  border: none;
+  border-radius: 3px;
+  background: #25913a;
+  color: #fff;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 13px;
+  cursor: pointer;
+}
+
+.cart-checkout:disabled {
+  background: #b7b2a5;
+  cursor: not-allowed;
+}
+
+/* ---------- mobile ---------- */
+
+@media (max-width: 600px) {
+  .header { padding: 32px 16px 20px; }
+  .title { font-size: 30px; }
+  .sheet { padding: 0 14px 30px; }
+  .grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .product-body { padding: 12px 14px 14px; }
+  .product-name { font-size: 18px; }
+  .product-desc { font-size: 12.5px; -webkit-line-clamp: 3; display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; }
+  .product-actions { flex-wrap: wrap; }
+  .cart-panel { width: 100%; }
+}

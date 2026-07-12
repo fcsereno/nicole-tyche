@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  doc-page:not(:defined) { visibility: hidden; }
+  body { background: #ece5d6; }
+  a { color: #9a7b3f; }
+</style>
+</helmet>
+
+<x-import component-from-global-scope="doc-page" from="./doc-page.js" size="a4" margin="0.9in" hint-size="100%,100%">
+
+  <!-- CAPA / CABEÇALHO -->
+  <div style="text-align:center; padding-bottom:18px; border-bottom:1px solid rgba(154,123,63,0.35);">
+    <img src="./LOGO_NICOLE_TYCHE.png" alt="Nicole Tyche" style="width:104px; height:auto; margin:0 auto 14px; display:block;">
+    <div style="font-family:'Cormorant Garamond',serif; font-weight:600; font-size:28px; letter-spacing:0.34em; text-transform:uppercase; color:#2b2620; margin-bottom:14px; padding-left:0.34em;">Nicole Tyche</div>
+    <h1 style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:500; font-size:46px; line-height:1; letter-spacing:0.01em; margin:0 0 14px; color:#9a7b3f;">Le Petit Catalogue</h1>
+    <div style="display:flex; align-items:center; justify-content:center; gap:14px; color:#9a7b3f;">
+      <span style="height:1px; width:38px; background:currentColor; opacity:0.6;"></span>
+      <span style="font-family:'EB Garamond',serif; font-style:italic; font-size:16px; color:#7a6a52;">doçaria fina · encomendas</span>
+      <span style="height:1px; width:38px; background:currentColor; opacity:0.6;"></span>
+    </div>
+  </div>
+
+  <!-- PARTE I: DOCINHOS -->
+  <div style="text-align:center; padding-top:30px; padding-bottom:6px;">
+    <div style="font-family:'Courier New',monospace; font-size:10px; letter-spacing:0.42em; text-transform:uppercase; color:#a08a5f; margin-bottom:4px;">Parte I</div>
+    <h2 style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:500; font-size:34px; margin:0; color:#2b2620;">Les Petits · Docinhos</h2>
+  </div>
+
+  <div style="display:flex; flex-direction:column; gap:20px; padding-top:22px;">
+
+    <sc-for list="{{ docinhos }}" as="p" hint-placeholder-count="5">
+      <article style="break-inside:avoid; display:flex; gap:26px; align-items:flex-start; padding:24px 28px; background:#faf6ec; border:1px solid rgba(154,123,63,0.28); border-radius:2px;">
+        <div style="flex:0 0 auto; width:46px; text-align:center; padding-top:4px;">
+          <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:500; font-size:34px; color:#c2a55f; line-height:1;">{{ p.num }}</div>
+        </div>
+        <div style="flex:1 1 auto;">
+          <h3 style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:600; font-size:28px; line-height:1.05; margin:0 0 8px; color:#2b2620;">{{ p.name }}</h3>
+          <p style="font-family:'EB Garamond',serif; font-size:15px; line-height:1.6; color:#5f584c; margin:0 0 14px; max-width:52ch;">{{ p.desc }}</p>
+          <div style="display:flex; align-items:baseline; gap:16px; font-family:'Courier New',monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#8a795c;">
+            <span style="color:#9a7b3f; font-weight:700;">{{ p.price }}</span>
+            <span style="height:11px; width:1px; background:rgba(154,123,63,0.5);"></span>
+            <span>{{ p.qty }}</span>
+          </div>
+        </div>
+      </article>
+    </sc-for>
+
+  </div>
+
+  <!-- PARTE II: BOLOS -->
+  <div style="break-before:page; text-align:center; padding-top:8px; padding-bottom:6px;">
+    <img src="./LOGO_NICOLE_TYCHE.png" alt="Nicole Tyche" style="width:64px; height:auto; margin:0 auto 12px; display:block; opacity:0.85;">
+    <div style="font-family:'Courier New',monospace; font-size:10px; letter-spacing:0.42em; text-transform:uppercase; color:#a08a5f; margin-bottom:4px;">Parte II</div>
+    <h2 style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:500; font-size:34px; margin:0; color:#2b2620;">Les Gâteaux · Bolos</h2>
+  </div>
+
+  <div style="display:flex; flex-direction:column; gap:20px; padding-top:22px;">
+
+    <sc-for list="{{ bolos }}" as="p" hint-placeholder-count="1">
+      <article style="break-inside:avoid; display:flex; gap:26px; align-items:flex-start; padding:24px 28px; background:#faf6ec; border:1px solid rgba(154,123,63,0.28); border-radius:2px;">
+        <div style="flex:0 0 auto; width:46px; text-align:center; padding-top:4px;">
+          <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:500; font-size:34px; color:#c2a55f; line-height:1;">{{ p.num }}</div>
+        </div>
+        <div style="flex:1 1 auto;">
+          <h3 style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:600; font-size:28px; line-height:1.05; margin:0 0 8px; color:#2b2620;">{{ p.name }}</h3>
+          <p style="font-family:'EB Garamond',serif; font-size:15px; line-height:1.6; color:#5f584c; margin:0 0 14px; max-width:52ch;">{{ p.desc }}</p>
+          <div style="display:flex; align-items:baseline; gap:16px; font-family:'Courier New',monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#8a795c;">
+            <span style="color:#9a7b3f; font-weight:700;">{{ p.price }}</span>
+          </div>
+        </div>
+      </article>
+    </sc-for>
+
+  </div>
+
+  <!-- RODAPÉ COM WHATSAPP -->
+  <div slot="footer" style="text-align:center; padding-top:8px; border-top:1px solid rgba(154,123,63,0.2);">
+    <div style="display:flex; align-items:center; justify-content:center; gap:18px;">
+      <span style="font-family:'EB Garamond',serif; font-style:italic; font-size:13px; letter-spacing:0.28em; color:#a08a5f; text-transform:lowercase;">confeitaria artesanal</span>
+      <span style="height:10px; width:1px; background:rgba(154,123,63,0.4);"></span>
+      <a href="https://wa.me/5522999484026" style="font-family:'Courier New',monospace; font-size:11px; letter-spacing:0.1em; color:#9a7b3f; text-decoration:none;">WhatsApp (22) 99948-4026</a>
+    </div>
+  </div>
+
+</x-import>
+</x-dc>
+
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      docinhos: [
+        {
+          num: "I",
+          name: "Petit Citron",
+          desc: "Uma base delicada, creme de limão que equilibra frescor e suavidade, encerrado por uma nuvem de merengue suíço tostado. Pequeno. Preciso. Irresistível.",
+          price: "R$ 120,00",
+          qty: "50 unidades",
+        },
+        {
+          num: "II",
+          name: "Blanc Tropical",
+          desc: "A cremosidade do leite ninho encontra a alma do coco. Um docinho que carrega calor, memória afetiva e um toque de brisa tropical em cada mordida.",
+          price: "R$ 80,00",
+          qty: "50 unidades",
+        },
+        {
+          num: "III",
+          name: "Velours Noir",
+          desc: "Chocolate nobre em sua forma mais intensa. Denso, úmido, com aquela textura que some devagar. Para quem leva chocolate a sério.",
+          price: "R$ 165,00",
+          qty: "50 unidades",
+        },
+        {
+          num: "IV",
+          name: "Petit Verrine Fraise",
+          desc: "Cheesecake cremoso em camadas, com geleia de morango artesanal. Fresco, elegante e levemente ácido — como uma sobremesa parisiense servida em copinho.",
+          price: "R$ 200,00",
+          qty: "50 unidades",
+        },
+        {
+          num: "V",
+          name: "Petit Verrine Romeu e Julieta",
+          desc: "A combinação mais clássica da confeitaria brasileira reinterpretada. Cream cheese sedoso, goiabada encorpada. Um romance em cada colherada.",
+          price: "R$ 200,00",
+          qty: "50 unidades",
+        },
+      ],
+      bolos: [
+        {
+          num: "I",
+          name: "Sur Mesure",
+          desc: "Cada bolo nasce de uma conversa. Sabores, recheios e decoração criados exclusivamente para o seu momento. Entre em contato e criamos juntos.",
+          price: "sob consulta",
+        },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>
