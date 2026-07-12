@@ -44,8 +44,10 @@ function productCard(p) {
 
 function renderGrids() {
   const docinhos = PRODUCTS.filter((p) => p.category === "docinhos");
+  const doces = PRODUCTS.filter((p) => p.category === "doces");
   const bolos = PRODUCTS.filter((p) => p.category === "bolos");
   document.getElementById("grid-docinhos").innerHTML = docinhos.map(productCard).join("");
+  document.getElementById("grid-doces").innerHTML = doces.map(productCard).join("");
   document.getElementById("grid-bolos").innerHTML = bolos.map(productCard).join("");
 }
 
