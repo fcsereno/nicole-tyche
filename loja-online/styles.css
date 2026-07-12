@@ -32,6 +32,18 @@ a { color: var(--gold); }
   height: auto;
   margin: 0 auto 16px;
   display: block;
+  animation: logo-rise 0.8s ease both;
+}
+
+@keyframes logo-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .brand {
@@ -132,6 +144,11 @@ a { color: var(--gold); }
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 0.35s ease;
+}
+
+.product:hover .product-media img {
+  transform: scale(1.08);
 }
 
 .product-placeholder {
