@@ -27,6 +27,13 @@ a { color: var(--gold); }
   padding: 48px 24px 24px;
 }
 
+.header .logo {
+  width: 90px;
+  height: auto;
+  margin: 0 auto 16px;
+  display: block;
+}
+
 .brand {
   font-family: 'Cormorant Garamond', serif;
   font-weight: 600;
