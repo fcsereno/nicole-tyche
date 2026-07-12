@@ -32,10 +32,10 @@ a { color: var(--gold); }
   height: auto;
   margin: 0 auto 16px;
   display: block;
-  animation: logo-rise 0.8s ease both;
+  animation: fade-rise 0.7s ease both;
 }
 
-@keyframes logo-rise {
+@keyframes fade-rise {
   from {
     opacity: 0;
     transform: translateY(16px);
@@ -54,6 +54,8 @@ a { color: var(--gold); }
   text-transform: uppercase;
   margin-bottom: 12px;
   padding-left: 0.3em;
+  animation: fade-rise 0.7s ease both;
+  animation-delay: 0.15s;
 }
 
 .title {
@@ -64,6 +66,8 @@ a { color: var(--gold); }
   line-height: 1;
   margin: 0 0 12px;
   color: var(--gold);
+  animation: fade-rise 0.7s ease both;
+  animation-delay: 0.3s;
 }
 
 .tagline {
@@ -72,6 +76,8 @@ a { color: var(--gold); }
   justify-content: center;
   gap: 12px;
   color: var(--gold);
+  animation: fade-rise 0.7s ease both;
+  animation-delay: 0.45s;
 }
 
 .tagline .line { height: 1px; width: 32px; background: currentColor; opacity: 0.6; }
