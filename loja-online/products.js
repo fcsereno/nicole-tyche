@@ -20,7 +20,7 @@ const PRODUCTS = [
     desc: "Uma base delicada, creme de limão que equilibra frescor e suavidade, encerrado por uma nuvem de merengue suíço tostado. Pequeno. Preciso. Irresistível.",
     price: 120.0,
     unit: "50 unidades",
-    image: null,
+    image: "images/petit-citron.jpg",
   },
   {
     id: "blanc-tropical",
